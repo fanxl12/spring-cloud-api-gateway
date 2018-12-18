@@ -2,7 +2,6 @@ package com.fanxl.apigateway.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -40,8 +39,8 @@ public class TokenFilter extends ZuulFilter {
         //这里从url参数里获取, 也可以从cookie, header里获取
         String token = request.getParameter("token");
         if (StringUtils.isEmpty(token)) {
-            requestContext.setSendZuulResponse(false);
-            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
+//            requestContext.setSendZuulResponse(false);
+//            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
         }
         return null;
     }
